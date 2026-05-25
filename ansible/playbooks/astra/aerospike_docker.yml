@@ -1,0 +1,16 @@
+- hosts: astra
+  become: true
+
+  tasks:
+    - name: Ensure container is removed
+      shell: docker rm -f aerospike || true
+
+    - name: Run Aerospike container
+      command: >
+        docker run -d
+        --name aerospike
+        -p 3000:3000
+        -p 3001:3001
+        -p 3002:3002
+        --ulimit nofile=15000:15000 \
+        aerospike:ee-8.1.2.1_3
