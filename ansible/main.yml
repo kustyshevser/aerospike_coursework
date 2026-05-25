@@ -1,0 +1,6 @@
+# update repositores metadata
+- import_playbook: playbooks/os_update.yml
+
+- import_playbook: playbooks/astra/main.yml
+
+- import_playbook: playbooks/alt/main.yml
